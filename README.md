@@ -135,7 +135,7 @@ In order to start the microservice, perform the following steps:
 
 ## 📌 API Endpoints Overview
 
-Before exploring API endpoints, make sure that your api-gateway service is up and running.
+Before exploring API endpoints, make sure that your api-gateway service is up and running. The default port is 8080.
 
 
 | **Method** | **Endpoint** | **Description** |
