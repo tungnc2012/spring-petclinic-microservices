@@ -1,18 +1,3 @@
-/*
- * Copyright 2002-2021 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package org.springframework.samples.petclinic.customers.web;
 
 import io.micrometer.core.annotation.Timed;
@@ -58,6 +43,7 @@ class OwnerResource {
     @ResponseStatus(HttpStatus.CREATED)
     public Owner createOwner(@Valid @RequestBody OwnerRequest ownerRequest) {
         Owner owner = ownerEntityMapper.map(new Owner(), ownerRequest);
+        log.info("Create new owner with information: {}", owner);        
         return ownerRepository.save(owner);
     }
 
@@ -66,6 +52,7 @@ class OwnerResource {
      */
     @GetMapping(value = "/{ownerId}")
     public Optional<Owner> findOwner(@PathVariable("ownerId") @Min(1) int ownerId) {
+        log.info("Find owner with id {}", ownerId);
         return ownerRepository.findById(ownerId);
     }
 
@@ -86,7 +73,7 @@ class OwnerResource {
         final Owner ownerModel = ownerRepository.findById(ownerId).orElseThrow(() -> new ResourceNotFoundException("Owner " + ownerId + " not found"));
 
         ownerEntityMapper.map(ownerModel, ownerRequest);
-        log.info("Saving owner {}", ownerModel);
+        log.info("Edit owner information successfully. Saving owner {}", ownerModel);
         ownerRepository.save(ownerModel);
     }
 }
