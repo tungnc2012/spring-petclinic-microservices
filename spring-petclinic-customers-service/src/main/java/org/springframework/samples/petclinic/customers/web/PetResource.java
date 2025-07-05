@@ -56,12 +56,11 @@ class PetResource {
     public Pet processCreationForm(
         @RequestBody PetRequest petRequest,
         @PathVariable("ownerId") @Min(1) int ownerId) {
-
         Owner owner = ownerRepository.findById(ownerId)
             .orElseThrow(() -> new ResourceNotFoundException("Owner " + ownerId + " not found"));
-
         final Pet pet = new Pet();
         owner.addPet(pet);
+        log.info("Creating new pet for owner with id {}: {}", ownerId, petRequest);
         return save(pet, petRequest);
     }
 
@@ -71,6 +70,7 @@ class PetResource {
         int petId = petRequest.id();
         Pet pet = findPetById(petId);
         save(pet, petRequest);
+        log.info("Updated pet with id {}", petId);
     }
 
     private Pet save(final Pet pet, final PetRequest petRequest) {
