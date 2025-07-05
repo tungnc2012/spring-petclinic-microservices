@@ -17,6 +17,8 @@ package org.springframework.samples.petclinic.vets.web;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.samples.petclinic.vets.model.Vet;
 import org.springframework.samples.petclinic.vets.model.VetRepository;
@@ -35,6 +37,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 class VetResource {
 
+    private static final Logger log = LoggerFactory.getLogger(VetResource.class);
     private final VetRepository vetRepository;
 
     VetResource(VetRepository vetRepository) {
