@@ -1,6 +1,7 @@
 package org.springframework.samples.petclinic.customers.config;
 
 import io.micrometer.core.aop.TimedAspect;
+import io.micrometer.core.aop.CountedAspect;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.boot.actuate.autoconfigure.metrics.MeterRegistryCustomizer;
 import org.springframework.context.annotation.Bean;
@@ -19,4 +20,9 @@ public class MetricConfig {
     return new TimedAspect(registry);
   }
 
+  @Bean
+  CountedAspect countedAspect(MeterRegistry registry) {
+    return new CountedAspect(registry);
+    // return registry.counter("counted.petclinic.owner");   
+  }
 }
