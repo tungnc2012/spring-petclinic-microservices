@@ -1,6 +1,9 @@
 package org.springframework.samples.petclinic.customers.web;
 
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.Timer;
 import io.micrometer.core.annotation.Timed;
+import io.micrometer.core.annotation.Counted;
 import jakarta.validation.constraints.Min;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,18 +14,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@Timed("petclinic.pet")
-
+@Timed("timed.petclinic.pet")
+@Counted(value = "counted.petclinic.pet")
 class PetResource {
 
     private static final Logger log = LoggerFactory.getLogger(PetResource.class);
 
     private final PetRepository petRepository;
     private final OwnerRepository ownerRepository;
+    private final MeterRegistry meterRegistry;
 
-    PetResource(PetRepository petRepository, OwnerRepository ownerRepository) {
+    PetResource(PetRepository petRepository, OwnerRepository ownerRepository, MeterRegistry meterRegistry) {
         this.petRepository = petRepository;
         this.ownerRepository = ownerRepository;
+        this.meterRegistry = meterRegistry;
     }
 
     @GetMapping("/petTypes")
@@ -36,20 +41,32 @@ class PetResource {
         @RequestBody PetRequest petRequest,
         @PathVariable("ownerId") @Min(1) int ownerId) {
 
-        Owner owner = ownerRepository.findById(ownerId)
-            .orElseThrow(() -> new ResourceNotFoundException("Owner " + ownerId + " not found"));
+        return Timer
+            .builder("custom.petclinic.pet.create.latency")
+            .description("Latency of create pet action")
+            .register(meterRegistry)
+            .record(() -> {
+                Owner owner = ownerRepository.findById(ownerId)
+                    .orElseThrow(() -> new ResourceNotFoundException("Owner " + ownerId + " not found"));
 
-        final Pet pet = new Pet();
-        owner.addPet(pet);
-        return save(pet, petRequest);
+                final Pet pet = new Pet();
+                owner.addPet(pet);
+                return save(pet, petRequest);
+            });
     }
 
     @PutMapping("/owners/*/pets/{petId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void processUpdateForm(@RequestBody PetRequest petRequest) {
-        int petId = petRequest.id();
-        Pet pet = findPetById(petId);
-        save(pet, petRequest);
+        Timer
+            .builder("custom.petclinic.pet.update.latency")
+            .description("Latency of update pet action")
+            .register(meterRegistry)
+            .record(() -> {
+                int petId = petRequest.id();
+                Pet pet = findPetById(petId);
+                save(pet, petRequest);
+            });
     }
 
     private Pet save(final Pet pet, final PetRequest petRequest) {
