@@ -4,6 +4,21 @@ spring:
   config:
     import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888/}
 
+otel:
+  instrumentation:
+    micrometer:
+      enabled: true
+    service:
+      name: customers-service
+    exporter:
+      otlp:
+        endpoint: http://localhost:4318
+        logging:
+          enabled: true
+        metrics:
+          enabled: true
+        traces:
+          enabled: true
 
 ---
 spring:
