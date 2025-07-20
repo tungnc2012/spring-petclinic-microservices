@@ -1,25 +1,13 @@
-/*
- * Copyright 2002-2021 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package org.springframework.samples.petclinic.visits.web;
 
 import java.util.List;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.Timer;
 import io.micrometer.core.annotation.Timed;
+import io.micrometer.core.annotation.Counted;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -33,14 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * @author Juergen Hoeller
- * @author Ken Krebs
- * @author Arjen Poutsma
- * @author Michael Isvy
- * @author Maciej Szarlinski
- * @author Ramazan Sakin
- */
 @RestController
 @Timed("petclinic.visit")
 class VisitResource {
@@ -48,9 +28,11 @@ class VisitResource {
     private static final Logger log = LoggerFactory.getLogger(VisitResource.class);
 
     private final VisitRepository visitRepository;
+    private final MeterRegistry meterRegistry;
 
-    VisitResource(VisitRepository visitRepository) {
+    VisitResource(VisitRepository visitRepository, MeterRegistry meterRegistry) {
         this.visitRepository = visitRepository;
+        this.meterRegistry = meterRegistry;
     }
 
     @PostMapping("owners/*/pets/{petId}/visits")
@@ -59,19 +41,36 @@ class VisitResource {
         @Valid @RequestBody Visit visit,
         @PathVariable("petId") @Min(1) int petId) {
 
-        visit.setPetId(petId);
-        log.info("Saving visit {}", visit);
-        return visitRepository.save(visit);
+        return Timer
+            .builder("custom.petclinic.visit.create.latency")
+            .description("Latency of create visit action")
+            .register(meterRegistry)
+            .record(() -> {
+                visit.setPetId(petId);
+                log.info("Saving visit {}", visit);
+                return visitRepository.save(visit);
+            });
     }
 
     @GetMapping("owners/*/pets/{petId}/visits")
     public List<Visit> read(@PathVariable("petId") @Min(1) int petId) {
+        log.info("Finding visits for pet with id {}", petId);
         return visitRepository.findByPetId(petId);
     }
 
     @GetMapping("pets/visits")
     public Visits read(@RequestParam("petId") List<Integer> petIds) {
         final List<Visit> byPetIdIn = visitRepository.findByPetIdIn(petIds);
+        log.info("Found {} visits for pet ids {}", byPetIdIn.size(), petIds);
+        // if (byPetIdIn.isEmpty()) {
+        //     log.warn("No visits found for pet ids {}", petIds);
+        // }
+        // if (byPetIdIn.size() != petIds.size()) {
+        //     log.warn("Some pet ids do not have visits: {}", petIds);
+        // }
+        // if (byPetIdIn.size() > 100) {
+        //     log.warn("Too many visits found for pet ids {}: {}", petIds, byPetIdIn.size());
+        // }   
         return new Visits(byPetIdIn);
     }
 

@@ -1,21 +1,9 @@
-/*
- * Copyright 2002-2021 the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package org.springframework.samples.petclinic.customers.web;
 
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.Timer;
 import io.micrometer.core.annotation.Timed;
+import io.micrometer.core.annotation.Counted;
 import jakarta.validation.constraints.Min;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,25 +13,21 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * @author Juergen Hoeller
- * @author Ken Krebs
- * @author Arjen Poutsma
- * @author Maciej Szarlinski
- * @author Ramazan Sakin
- */
 @RestController
-@Timed("petclinic.pet")
+@Timed("timed.petclinic.pet")
+@Counted(value = "counted.petclinic.pet")
 class PetResource {
 
     private static final Logger log = LoggerFactory.getLogger(PetResource.class);
 
     private final PetRepository petRepository;
     private final OwnerRepository ownerRepository;
+    private final MeterRegistry meterRegistry;
 
-    PetResource(PetRepository petRepository, OwnerRepository ownerRepository) {
+    PetResource(PetRepository petRepository, OwnerRepository ownerRepository, MeterRegistry meterRegistry) {
         this.petRepository = petRepository;
         this.ownerRepository = ownerRepository;
+        this.meterRegistry = meterRegistry;
     }
 
     @GetMapping("/petTypes")
@@ -56,21 +40,34 @@ class PetResource {
     public Pet processCreationForm(
         @RequestBody PetRequest petRequest,
         @PathVariable("ownerId") @Min(1) int ownerId) {
+      
+        return Timer
+            .builder("custom.petclinic.pet.create.latency")
+            .description("Latency of create pet action")
+            .register(meterRegistry)
+            .record(() -> {
+                Owner owner = ownerRepository.findById(ownerId)
+                    .orElseThrow(() -> new ResourceNotFoundException("Owner " + ownerId + " not found"));
 
-        Owner owner = ownerRepository.findById(ownerId)
-            .orElseThrow(() -> new ResourceNotFoundException("Owner " + ownerId + " not found"));
-
-        final Pet pet = new Pet();
-        owner.addPet(pet);
-        return save(pet, petRequest);
+                final Pet pet = new Pet();
+                owner.addPet(pet);
+                return save(pet, petRequest);
+            });
     }
 
     @PutMapping("/owners/*/pets/{petId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void processUpdateForm(@RequestBody PetRequest petRequest) {
-        int petId = petRequest.id();
-        Pet pet = findPetById(petId);
-        save(pet, petRequest);
+        Timer
+            .builder("custom.petclinic.pet.update.latency")
+            .description("Latency of update pet action")
+            .register(meterRegistry)
+            .record(() -> {
+                int petId = petRequest.id();
+                Pet pet = findPetById(petId);
+                save(pet, petRequest);
+            });
+
     }
 
     private Pet save(final Pet pet, final PetRequest petRequest) {
@@ -88,6 +85,7 @@ class PetResource {
     @GetMapping("owners/*/pets/{petId}")
     public PetDetails findPet(@PathVariable("petId") int petId) {
         Pet pet = findPetById(petId);
+        log.info("Finding pet with id {}", petId);
         return new PetDetails(pet);
     }
 

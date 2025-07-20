@@ -135,7 +135,7 @@ In order to start the microservice, perform the following steps:
 
 ## 📌 API Endpoints Overview
 
-Before exploring API endpoints, make sure that your api-gateway service is up and running.
+Before exploring API endpoints, make sure that your api-gateway service is up and running. The default port is 8080.
 
 
 | **Method** | **Endpoint** | **Description** |
@@ -219,6 +219,42 @@ All those three REST controllers `OwnerResource`, `PetResource` and `VisitResour
   * @Timed: `petclinic.pet`
 * `visits-service` application has the following custom metrics enabled:
   * @Timed: `petclinic.visit`
+
+### Custom metrics monitoring with Micrometer annotations
+
+Spring Boot automatically registers core metrics for JVM, CPU, Tomcat, and Logback. You can add custom metrics using Micrometer annotations:
+
+#### Available Annotations
+- `@Timed`: Measures the time taken by method execution
+- `@Counted`: Counts the number of method invocations
+- `@Gauge`: Records a value that can go up or down
+- `@DistributionSummary`: Tracks the distribution of events
+
+#### Current Implementation
+The following REST controllers are instrumented with `@Timed`:
+
+* `customers-service`:
+  * `@Timed("petclinic.owner")` on `OwnerResource`
+  * `@Timed("petclinic.pet")` on `PetResource`
+* `visits-service`:
+  * `@Timed("petclinic.visit")` on `VisitResource`
+
+#### Adding New Metrics
+To add metrics to your controllers:
+
+```java
+@RestController
+@Timed("custom.metric.name") // Class level annotation
+public class MyController {
+    
+    @Timed(value = "method.metric", percentiles = {0.5, 0.95, 0.99}) // Method level
+    public Response handleRequest() {
+        // Method implementation
+    }
+}
+```
+
+All metrics are automatically exported to Prometheus and visible in Grafana dashboards.
 
 ## Looking for something in particular?
 

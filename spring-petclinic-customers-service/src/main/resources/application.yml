@@ -20,6 +20,12 @@ otel:
         traces:
           enabled: true
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "metrics"
+
 ---
 spring:
   config:
