@@ -1,0 +1,2 @@
+export AZURE_OPENAI_ENDPOINT=""
+export AZURE_OPENAI_KEY=""
