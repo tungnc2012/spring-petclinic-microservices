@@ -1,0 +1,67 @@
+
+version: "3"
+services:
+
+  otel-collector:
+    image: otel/opentelemetry-collector:0.120.0
+    container_name: otel-collector
+    restart: always
+    command: ["--config=/etc/otel-collector-config.yaml"]
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
+      - ./telemetry-data.json:/etc/telemetry-data.json
+    ports:
+      - "4318:4318"
+
+  grafana:
+    image: grafana/grafana:11.5.2
+    container_name: grafana
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+    ports:
+      - "3000:3000"
+
+  mimir-1:
+    image: grafana/mimir:2.14.3
+    command: [ "-config.file=/etc/mimir.yaml" ]
+    container_name: mimir-1
+    hostname: mimir-1
+    volumes:
+      - ./mimir.yaml:/etc/mimir.yaml
+    ports:
+       - 9009:9009
+
+  mimir-2:
+    image: grafana/mimir:2.14.3
+    command: [ "-config.file=/etc/mimir.yaml" ]
+    container_name: mimir-2
+    hostname: mimir-2
+    volumes:
+      - ./mimir.yaml:/etc/mimir.yaml
+
+  mimir-3:
+    image: grafana/mimir:2.14.3
+    command: [ "-config.file=/etc/mimir.yaml" ]
+    container_name: mimir-3
+    hostname: mimir-3
+    volumes:
+      - ./mimir.yaml:/etc/mimir.yaml
+
+  tempo:
+    image: grafana/tempo:2.7.1
+    container_name: tempo
+    command: [ "-config.file=/etc/tempo.yaml" ]
+    ports:
+      - "3200:3200"
+    volumes:
+      - ./tempo.yaml:/etc/tempo.yaml
+
+  loki:
+    image: grafana/loki:3.4.2
+    container_name: loki
+    environment:
+      - LOKI_STORAGE_BACKEND=memory
+    ports:
+      - "3100:3100"
+
