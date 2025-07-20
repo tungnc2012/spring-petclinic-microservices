@@ -40,7 +40,7 @@ class PetResource {
     public Pet processCreationForm(
         @RequestBody PetRequest petRequest,
         @PathVariable("ownerId") @Min(1) int ownerId) {
-
+      
         return Timer
             .builder("custom.petclinic.pet.create.latency")
             .description("Latency of create pet action")
@@ -67,6 +67,7 @@ class PetResource {
                 Pet pet = findPetById(petId);
                 save(pet, petRequest);
             });
+
     }
 
     private Pet save(final Pet pet, final PetRequest petRequest) {
@@ -84,6 +85,7 @@ class PetResource {
     @GetMapping("owners/*/pets/{petId}")
     public PetDetails findPet(@PathVariable("petId") int petId) {
         Pet pet = findPetById(petId);
+        log.info("Finding pet with id {}", petId);
         return new PetDetails(pet);
     }
 

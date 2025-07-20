@@ -58,6 +58,7 @@ class OwnerResource {
     @GetMapping(value = "/{ownerId}")
     // @Counted(value = "counted.petclinic.owner")
     public Optional<Owner> findOwner(@PathVariable("ownerId") @Min(1) int ownerId) {
+        log.info("Find owner with id {}", ownerId);
         return ownerRepository.findById(ownerId);
     }
 
