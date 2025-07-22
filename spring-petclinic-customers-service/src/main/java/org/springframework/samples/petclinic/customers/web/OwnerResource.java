@@ -42,6 +42,7 @@ class OwnerResource {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Owner createOwner(@Valid @RequestBody OwnerRequest ownerRequest) {
+        log.info("Creating owner with firstName: {}, lastName: {}", ownerRequest.firstName(), ownerRequest.lastName());
         return Timer
             .builder("custom.petclinic.owner.create.latency")
             .description("Latency of create owner action")
@@ -77,6 +78,7 @@ class OwnerResource {
     @PutMapping(value = "/{ownerId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateOwner(@PathVariable("ownerId") @Min(1) int ownerId, @Valid @RequestBody OwnerRequest ownerRequest) {
+        log.info("Updating owner with id: {} (firstName: {}, lastName: {})", ownerId, ownerRequest.firstName(), ownerRequest.lastName());
         Timer
             .builder("custom.petclinic.owner.update.latency")
             .description("Latency of update owner action")

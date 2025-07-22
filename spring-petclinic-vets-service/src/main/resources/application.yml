@@ -8,6 +8,21 @@ spring:
   profiles:
     active: production
 
+otel:
+  instrumentation:
+    micrometer:
+      enabled: true
+    service:
+      name: vets-service
+    exporter:
+      otlp:
+        endpoint: http://otel-collector:4318
+        logging:
+          enabled: true
+        metrics:
+          enabled: true
+        traces:
+          enabled: true
 ---
 spring:
   config:

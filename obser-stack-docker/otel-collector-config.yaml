@@ -13,7 +13,7 @@ exporters:
   otlphttp/metrics:
     endpoint: "http://mimir-1:9009/otlp"
     headers:
-      "X-Scope-OrgID": "homelab"
+      "X-Scope-OrgID": "petclinic"
   otlphttp/traces:
     endpoint: "http://tempo:4318"
   otlphttp/logs:

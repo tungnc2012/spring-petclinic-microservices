@@ -12,7 +12,7 @@ otel:
       name: customers-service
     exporter:
       otlp:
-        endpoint: http://localhost:4318
+        endpoint: http://otel-collector:4318
         logging:
           enabled: true
         metrics:
