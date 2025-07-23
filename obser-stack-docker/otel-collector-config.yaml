@@ -11,7 +11,7 @@ exporters:
   file:
     path: /etc/telemetry-data.json
   otlphttp/metrics:
-    endpoint: "http://mimir-1:9009/otlp"
+    endpoint: "http://mimir-1:8080/otlp"
     headers:
       "X-Scope-OrgID": "petclinic"
   otlphttp/traces:

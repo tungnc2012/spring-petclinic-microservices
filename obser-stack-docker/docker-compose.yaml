@@ -30,7 +30,7 @@ services:
     volumes:
       - ./mimir.yaml:/etc/mimir.yaml
     ports:
-       - 9009:9009
+       - 8080:8080
 
   mimir-2:
     image: grafana/mimir:2.14.3
