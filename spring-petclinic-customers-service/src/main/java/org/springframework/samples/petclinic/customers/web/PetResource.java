@@ -47,7 +47,10 @@ class PetResource {
             .register(meterRegistry)
             .record(() -> {
                 Owner owner = ownerRepository.findById(ownerId)
-                    .orElseThrow(() -> new ResourceNotFoundException("Owner " + ownerId + " not found"));
+                    .orElseThrow(() -> {
+                        log.error("Owner with id {} not found", ownerId);
+                        return new ResourceNotFoundException("Owner " + ownerId + " not found");
+                    });
 
                 final Pet pet = new Pet();
                 owner.addPet(pet);
@@ -92,7 +95,10 @@ class PetResource {
 
     private Pet findPetById(int petId) {
         return petRepository.findById(petId)
-            .orElseThrow(() -> new ResourceNotFoundException("Pet " + petId + " not found"));
+            .orElseThrow(() -> {
+                log.error("Pet with id {} not found, please try again with another id", petId);
+                return new ResourceNotFoundException("Pet " + petId + " not found");
+            });
     }
 
 }

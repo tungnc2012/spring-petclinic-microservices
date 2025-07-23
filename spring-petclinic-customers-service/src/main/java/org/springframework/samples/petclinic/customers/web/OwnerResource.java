@@ -57,12 +57,14 @@ class OwnerResource {
      * Read single Owner
      */
     @GetMapping(value = "/{ownerId}")
-    // @Counted(value = "counted.petclinic.owner")
-    public Optional<Owner> findOwner(@PathVariable("ownerId") @Min(1) int ownerId) {
+    public Owner findOwner(@PathVariable("ownerId") @Min(1) int ownerId) {
         log.info("Find owner with id {}", ownerId);
-        return ownerRepository.findById(ownerId);
+        return ownerRepository.findById(ownerId)
+                .orElseThrow(() -> {
+                    log.error("Owner with id {} not found", ownerId);
+                    return new ResourceNotFoundException("Owner " + ownerId + " not found");
+                });
     }
-
     /**
      * Read List of Owners
      */
@@ -84,7 +86,10 @@ class OwnerResource {
             .description("Latency of update owner action")
             .register(meterRegistry)
             .record(() -> {
-                final Owner ownerModel = ownerRepository.findById(ownerId).orElseThrow(() -> new ResourceNotFoundException("Owner " + ownerId + " not found"));
+                final Owner ownerModel = ownerRepository.findById(ownerId).orElseThrow(() -> {
+                    log.error("Owner with id {} not found, can not saving information", ownerId);
+                    return new ResourceNotFoundException("Owner " + ownerId + " not found");
+                });
                 ownerEntityMapper.map(ownerModel, ownerRequest);
                 log.info("Saving owner {}", ownerModel);
                 ownerRepository.save(ownerModel);

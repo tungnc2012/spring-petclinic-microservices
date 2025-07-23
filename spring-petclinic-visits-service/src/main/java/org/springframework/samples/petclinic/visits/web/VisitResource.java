@@ -61,16 +61,7 @@ class VisitResource {
     @GetMapping("pets/visits")
     public Visits read(@RequestParam("petId") List<Integer> petIds) {
         final List<Visit> byPetIdIn = visitRepository.findByPetIdIn(petIds);
-        log.info("Found {} visits for pet ids {}", byPetIdIn.size(), petIds);
-        // if (byPetIdIn.isEmpty()) {
-        //     log.warn("No visits found for pet ids {}", petIds);
-        // }
-        // if (byPetIdIn.size() != petIds.size()) {
-        //     log.warn("Some pet ids do not have visits: {}", petIds);
-        // }
-        // if (byPetIdIn.size() > 100) {
-        //     log.warn("Too many visits found for pet ids {}: {}", petIds, byPetIdIn.size());
-        // }   
+        log.info("Found {} visits for pet ids {}", byPetIdIn.size(), petIds); 
         return new Visits(byPetIdIn);
     }
 
