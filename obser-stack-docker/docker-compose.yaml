@@ -65,3 +65,14 @@ services:
     ports:
       - "3100:3100"
 
+  prometheus:
+    image: prom/prometheus:v3.5.0
+    container_name: prometheus
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+    volumes:
+      - ./prometheus.yaml:/etc/prometheus/prometheus.yaml
+    ports:
+    - 9091:9090

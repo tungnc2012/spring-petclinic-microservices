@@ -19,6 +19,7 @@ docker-compose.yaml
    - Image: `grafana/grafana:11.5.2`
    - Anonymous auth enabled
    - Purpose: Visualization
+   - Port: 3000
 
 3. **tempo**
    - Image: `grafana/tempo`
@@ -34,3 +35,4 @@ docker-compose.yaml
    - Image: `grafana/mimir`
    - Multiple replicas
    - Purpose: Metrics storage
+   - Port: 8080
