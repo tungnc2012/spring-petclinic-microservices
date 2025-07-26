@@ -1,0 +1,82 @@
+# ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: grafana-server
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: grafana-server
+#   template:
+#     metadata:
+#       labels:
+#         app: grafana-server
+#     spec:
+#       containers:
+#       - name: grafana-server
+#         # image: <build-from: ./docker/grafana>
+#         image: grafana/grafana:latest
+#         ports:
+#         - containerPort: 3030
+#         resources:
+#           limits:
+#             memory: "256Mi"
+#         # Add volume mounts and config as needed
+#         # env: []
+#         # volumeMounts: []
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: grafana-server
+# spec:
+#   selector:
+#     app: grafana-server
+#   ports:
+#     - protocol: TCP
+#       port: 3030
+#       targetPort: 3030
+#       nodePort: 30330
+#   type: NodePort
+# ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: prometheus-server
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: prometheus-server
+#   template:
+#     metadata:
+#       labels:
+#         app: prometheus-server
+#     spec:
+#       containers:
+#       - name: prometheus-server
+#         # image: <build-from: ./docker/prometheus>
+#         image: prom/prometheus:latest
+#         ports:
+#         - containerPort: 9091
+#         resources:
+#           limits:
+#             memory: "256Mi"
+#         # Add volume mounts and config as needed
+#         # env: []
+#         # volumeMounts: []
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: prometheus-server
+# spec:
+#   selector:
+#     app: prometheus-server
+#   ports:
+#     - protocol: TCP
+#       port: 9091
+#       targetPort: 9091
+#       nodePort: 30901
+#   type: NodePort 
