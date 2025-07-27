@@ -148,4 +148,5 @@ services:
 
 networks:
   petclinic-network:
-    driver: bridge
+    name: obser-stack-docker_petclinic-network
+    external: true

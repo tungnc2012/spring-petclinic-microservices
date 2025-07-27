@@ -95,5 +95,4 @@ services:
 
 networks:
   petclinic-network:
-    name: spring-petclinic-microservices_petclinic-network
-    external: true
+    driver: bridge
