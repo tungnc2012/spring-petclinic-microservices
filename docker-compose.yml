@@ -1,120 +1,4 @@
 services:
-  # Observability stack - Start first
-  otel-collector:
-    image: otel/opentelemetry-collector:0.120.0
-    container_name: otel-collector
-    restart: always
-    command: ["--config=/etc/otel-collector-config.yaml"]
-    volumes:
-      - ./obser-stack-docker/otel-collector-config.yaml:/etc/otel-collector-config.yaml
-      - ./obser-stack-docker/telemetry-data.json:/etc/telemetry-data.json
-    # healthcheck:
-    #   test: ["CMD", "curl", "-f", "http://otel-collector:4318/health"]
-    #   interval: 10s
-    #   timeout: 5s
-    #   retries: 5
-    ports:
-      - "4318:4318"
-
-  grafana:
-    image: grafana/grafana:11.5.2
-    container_name: grafana
-    environment:
-      - GF_AUTH_ANONYMOUS_ENABLED=true
-      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://grafana:3000/api/health"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    ports:
-      - "3000:3000"
-
-  mimir-1:
-    image: grafana/mimir:2.14.3
-    command: [ "-config.file=/etc/mimir.yaml" ]
-    container_name: mimir-1
-    hostname: mimir-1
-    volumes:
-      - ./obser-stack-docker/mimir.yaml:/etc/mimir.yaml
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://mimir-1:8080/ready"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    ports:
-       - 8080:8080
-
-  mimir-2:
-    image: grafana/mimir:2.14.3
-    command: [ "-config.file=/etc/mimir.yaml" ]
-    container_name: mimir-2
-    hostname: mimir-2
-    volumes:
-      - ./obser-stack-docker/mimir.yaml:/etc/mimir.yaml
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://mimir-2:8080/ready"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-
-  mimir-3:
-    image: grafana/mimir:2.14.3
-    command: [ "-config.file=/etc/mimir.yaml" ]
-    container_name: mimir-3
-    hostname: mimir-3
-    volumes:
-      - ./obser-stack-docker/mimir.yaml:/etc/mimir.yaml
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://mimir-3:8080/ready"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-
-  tempo:
-    image: grafana/tempo:2.7.1
-    container_name: tempo
-    command: [ "-config.file=/etc/tempo.yaml" ]
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://tempo:3200/ready"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    ports:
-      - "3200:3200"
-    volumes:
-      - ./obser-stack-docker/tempo.yaml:/etc/tempo.yaml
-
-  loki:
-    image: grafana/loki:3.4.2
-    container_name: loki
-    environment:
-      - LOKI_STORAGE_BACKEND=memory
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://loki:3100/ready"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    ports:
-      - "3100:3100"
-
-  prometheus:
-    image: prom/prometheus:v3.5.0
-    container_name: prometheus
-    deploy:
-      resources:
-        limits:
-          memory: 256M
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://prometheus:9090/-/healthy"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    volumes:
-      - ./obser-stack-docker/prometheus.yaml:/etc/prometheus/prometheus.yaml
-    ports:
-    - 9091:9090
-
   # Application services - Start after observability stack
   config-server:
     image: tungnc2012/spring-petclinic-config-server:1.0.0
@@ -123,20 +7,12 @@ services:
       resources:
         limits:
           memory: 512M
-    healthcheck:
-      test: ["CMD", "curl", "-I", "http://config-server:8888"]
-      interval: 5s
-      timeout: 5s
-      retries: 10
-    depends_on:
-      otel-collector:
-        condition: service_healthy
-      grafana:
-        condition: service_healthy
-      prometheus:
-        condition: service_healthy
     ports:
      - 8888:8888
+    networks:
+      - petclinic-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
 
   discovery-server:
     image: tungnc2012/spring-petclinic-discovery-server:1.0.0
@@ -145,16 +21,12 @@ services:
       resources:
         limits:
           memory: 512M
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://discovery-server:8761"]
-      interval: 5s
-      timeout: 3s
-      retries: 10
-    depends_on:
-      config-server:
-        condition: service_healthy
     ports:
      - 8761:8761
+    networks:
+      - petclinic-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
 
   customers-service:
     image: tungnc2012/spring-petclinic-customers-service:1.0.0
@@ -165,11 +37,17 @@ services:
           memory: 512M
     depends_on:
       config-server:
-        condition: service_healthy
-      discovery-server:
-        condition: service_healthy
+        condition: service_started
     ports:
     - 8082:8082
+    networks:
+      - petclinic-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318
+      - OTEL_METRICS_EXPORTER=otlp
+      - OTEL_LOGS_EXPORTER=otlp
+      - OTEL_TRACES_EXPORTER=otlp
 
   visits-service:
     image: tungnc2012/spring-petclinic-visits-service:1.0.0
@@ -180,11 +58,17 @@ services:
           memory: 512M
     depends_on:
       config-server:
-        condition: service_healthy
-      discovery-server:
-        condition: service_healthy
+        condition: service_started
     ports:
      - 8084:8084
+    networks:
+      - petclinic-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318
+      - OTEL_METRICS_EXPORTER=otlp
+      - OTEL_LOGS_EXPORTER=otlp
+      - OTEL_TRACES_EXPORTER=otlp
 
   vets-service:
     image: tungnc2012/spring-petclinic-vets-service:1.0.0
@@ -195,11 +79,17 @@ services:
           memory: 512M
     depends_on:
       config-server:
-        condition: service_healthy
-      discovery-server:
-        condition: service_healthy
+        condition: service_started
     ports:
      - 8083:8083
+    networks:
+      - petclinic-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318
+      - OTEL_METRICS_EXPORTER=otlp
+      - OTEL_LOGS_EXPORTER=otlp
+      - OTEL_TRACES_EXPORTER=otlp
 
   # genai-service:
   #   image: tungnc2012/spring-petclinic-genai-service:1.0.0
@@ -214,11 +104,15 @@ services:
   #         memory: 512M
   #   depends_on:
   #     config-server:
-  #       condition: service_healthy
+  #       condition: service_started
   #     discovery-server:
-  #       condition: service_healthy
+  #       condition: service_started
   #   ports:
   #    - 8085:8085
+  #   networks:
+  #     - petclinic-network
+  #   environment:
+  #     - SPRING_PROFILES_ACTIVE=docker
 
   api-gateway:
     image: tungnc2012/spring-petclinic-api-gateway:1.0.0
@@ -229,11 +123,11 @@ services:
           memory: 512M
     depends_on:
       config-server:
-        condition: service_healthy
-      discovery-server:
-        condition: service_healthy
+        condition: service_started
     ports:
      - 8081:8081
+    networks:
+      - petclinic-network
 
   admin-server:
     image: tungnc2012/spring-petclinic-admin-server:1.0.0
@@ -244,8 +138,14 @@ services:
           memory: 512M
     depends_on:
       config-server:
-        condition: service_healthy
-      discovery-server:
-        condition: service_healthy
+        condition: service_started
     ports:
      - 9099:9099
+    networks:
+      - petclinic-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+networks:
+  petclinic-network:
+    driver: bridge
