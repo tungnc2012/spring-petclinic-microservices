@@ -27,6 +27,13 @@ services:
       - petclinic-network
     environment:
       - SPRING_PROFILES_ACTIVE=docker
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8761/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+    restart: unless-stopped
 
   customers-service:
     image: tungnc2012/spring-petclinic-customers-service:1.0.0
@@ -38,6 +45,8 @@ services:
     depends_on:
       config-server:
         condition: service_started
+      discovery-server:
+        condition: service_healthy
     ports:
     - 8082:8082
     networks:
@@ -59,6 +68,8 @@ services:
     depends_on:
       config-server:
         condition: service_started
+      discovery-server:
+        condition: service_healthy
     ports:
      - 8084:8084
     networks:
@@ -80,6 +91,8 @@ services:
     depends_on:
       config-server:
         condition: service_started
+      discovery-server:
+        condition: service_healthy
     ports:
      - 8083:8083
     networks:
@@ -124,6 +137,8 @@ services:
     depends_on:
       config-server:
         condition: service_started
+      discovery-server:
+        condition: service_healthy
     ports:
      - 8081:8081
     networks:
@@ -139,6 +154,8 @@ services:
     depends_on:
       config-server:
         condition: service_started
+      discovery-server:
+        condition: service_healthy
     ports:
      - 9099:9099
     networks:
