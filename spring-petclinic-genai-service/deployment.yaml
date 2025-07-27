@@ -19,7 +19,11 @@
 #         - containerPort: 8085
 #         resources:
 #           limits:
-#             memory: "512Mi"
+#             cpu: "128m"
+#             memory: "256Mi"
+#           requests:
+#             cpu: "128m"
+#             memory: "256Mi"
 #         env:
 #         - name: OPENAI_API_KEY
 #           value: "<your-openai-api-key>"
