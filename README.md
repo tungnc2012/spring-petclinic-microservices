@@ -68,6 +68,80 @@ If you experience issues with running the system via docker-compose you can try 
 
 Each of the java based applications is started with the `chaos-monkey` profile in order to interact with Spring Boot Chaos Monkey. You can check out the [README](scripts/chaos/README.md) for more information about how to use the `./scripts/chaos/call_chaos.sh` helper script to enable assaults.
 
+## Deploying to Kubernetes with Helm
+
+A Helm chart is provided in `helm/petclinic/` to deploy all microservices to a Kubernetes cluster.
+
+### Prerequisites
+
+- A running Kubernetes cluster (minikube, kind, EKS, GKE, AKS, etc.)
+- [Helm 3](https://helm.sh/docs/intro/install/) installed
+- Container images built and pushed to an accessible registry (see [Pushing to a Docker registry](#pushing-to-a-docker-registry))
+
+### Install the chart with default values
+
+```bash
+helm install petclinic helm/petclinic
+```
+
+### Install with custom image registry and tag
+
+```bash
+helm install petclinic helm/petclinic \
+  --set global.imageRegistry=myregistry.io/petclinic \
+  --set global.imageTag=1.0.0
+```
+
+### Enable external access via Ingress
+
+```bash
+helm install petclinic helm/petclinic \
+  --set ingress.enabled=true \
+  --set ingress.host=petclinic.example.com \
+  --set ingress.className=nginx
+```
+
+### Expose API Gateway via LoadBalancer (cloud environments)
+
+```bash
+helm install petclinic helm/petclinic \
+  --set apiGateway.service.type=LoadBalancer
+```
+
+### Enable MySQL backend
+
+```bash
+helm install petclinic helm/petclinic \
+  --set mysql.enabled=true \
+  --set mysql.host=my-mysql-host \
+  --set mysql.password=secret
+```
+
+### Configure GenAI Service with OpenAI
+
+```bash
+helm install petclinic helm/petclinic \
+  --set genaiService.openaiApiKey=your_api_key_here
+```
+
+### Override resource limits
+
+```bash
+helm install petclinic helm/petclinic \
+  --set customersService.resources.limits.memory=1Gi \
+  --set customersService.resources.requests.memory=512Mi
+```
+
+### Uninstall
+
+```bash
+helm uninstall petclinic
+```
+
+### Chart structure
+
+All configurable values are documented in `helm/petclinic/values.yaml`. Services start in dependency order using init containers: Config Server → Discovery Server → all other services.
+
 ## Understanding the Spring Petclinic application
 
 [See the presentation of the Spring Petclinic Framework version](http://fr.slideshare.net/AntoineRey/spring-framework-petclinic-sample-application)

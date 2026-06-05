@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-api-gateway
+  labels:
+    {{- include "petclinic.labels" (dict "Release" .Release "Chart" .Chart "component" "api-gateway") | nindent 4 }}
+spec:
+  replicas: {{ .Values.apiGateway.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "petclinic.selectorLabels" (dict "Release" .Release "component" "api-gateway") | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "petclinic.selectorLabels" (dict "Release" .Release "component" "api-gateway") | nindent 8 }}
+    spec:
+      initContainers:
+        {{- include "petclinic.initContainers.waitForDependencies" . | nindent 8 }}
+      containers:
+        - name: api-gateway
+          image: {{ include "petclinic.image" (dict "service" .Values.apiGateway "global" .Values.global "defaultName" "spring-petclinic-api-gateway") }}
+          imagePullPolicy: {{ .Values.global.imagePullPolicy }}
+          ports:
+            - containerPort: {{ .Values.apiGateway.port }}
+              protocol: TCP
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "docker"
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: {{ .Values.apiGateway.port }}
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: {{ .Values.apiGateway.port }}
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            timeoutSeconds: 5
+          resources:
+            {{- toYaml .Values.apiGateway.resources | nindent 12 }}

@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-discovery-server
+  labels:
+    {{- include "petclinic.labels" (dict "Release" .Release "Chart" .Chart "component" "discovery-server") | nindent 4 }}
+spec:
+  replicas: {{ .Values.discoveryServer.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "petclinic.selectorLabels" (dict "Release" .Release "component" "discovery-server") | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "petclinic.selectorLabels" (dict "Release" .Release "component" "discovery-server") | nindent 8 }}
+    spec:
+      initContainers:
+        {{- include "petclinic.initContainers.waitForConfigServer" . | nindent 8 }}
+      containers:
+        - name: discovery-server
+          image: {{ include "petclinic.image" (dict "service" .Values.discoveryServer "global" .Values.global "defaultName" "spring-petclinic-discovery-server") }}
+          imagePullPolicy: {{ .Values.global.imagePullPolicy }}
+          ports:
+            - containerPort: {{ .Values.discoveryServer.port }}
+              protocol: TCP
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "docker"
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: {{ .Values.discoveryServer.port }}
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: {{ .Values.discoveryServer.port }}
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            timeoutSeconds: 5
+          resources:
+            {{- toYaml .Values.discoveryServer.resources | nindent 12 }}

@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-admin-server
+  labels:
+    {{- include "petclinic.labels" (dict "Release" .Release "Chart" .Chart "component" "admin-server") | nindent 4 }}
+spec:
+  replicas: {{ .Values.adminServer.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "petclinic.selectorLabels" (dict "Release" .Release "component" "admin-server") | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "petclinic.selectorLabels" (dict "Release" .Release "component" "admin-server") | nindent 8 }}
+    spec:
+      initContainers:
+        {{- include "petclinic.initContainers.waitForDependencies" . | nindent 8 }}
+      containers:
+        - name: admin-server
+          image: {{ include "petclinic.image" (dict "service" .Values.adminServer "global" .Values.global "defaultName" "spring-petclinic-admin-server") }}
+          imagePullPolicy: {{ .Values.global.imagePullPolicy }}
+          ports:
+            - containerPort: {{ .Values.adminServer.port }}
+              protocol: TCP
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "docker"
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: {{ .Values.adminServer.port }}
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: {{ .Values.adminServer.port }}
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            timeoutSeconds: 5
+          resources:
+            {{- toYaml .Values.adminServer.resources | nindent 12 }}

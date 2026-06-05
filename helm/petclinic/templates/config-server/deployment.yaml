@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-config-server
+  labels:
+    {{- include "petclinic.labels" (dict "Release" .Release "Chart" .Chart "component" "config-server") | nindent 4 }}
+spec:
+  replicas: {{ .Values.configServer.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "petclinic.selectorLabels" (dict "Release" .Release "component" "config-server") | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "petclinic.selectorLabels" (dict "Release" .Release "component" "config-server") | nindent 8 }}
+    spec:
+      containers:
+        - name: config-server
+          image: {{ include "petclinic.image" (dict "service" .Values.configServer "global" .Values.global "defaultName" "spring-petclinic-config-server") }}
+          imagePullPolicy: {{ .Values.global.imagePullPolicy }}
+          ports:
+            - containerPort: {{ .Values.configServer.port }}
+              protocol: TCP
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "docker"
+            - name: SPRING_CLOUD_CONFIG_SERVER_GIT_URI
+              value: {{ .Values.configServer.git.uri | quote }}
+            - name: SPRING_CLOUD_CONFIG_SERVER_GIT_DEFAULT_LABEL
+              value: {{ .Values.configServer.git.branch | quote }}
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: {{ .Values.configServer.port }}
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: {{ .Values.configServer.port }}
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            timeoutSeconds: 5
+          resources:
+            {{- toYaml .Values.configServer.resources | nindent 12 }}

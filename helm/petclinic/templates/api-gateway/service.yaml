@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-api-gateway
+  labels:
+    {{- include "petclinic.labels" (dict "Release" .Release "Chart" .Chart "component" "api-gateway") | nindent 4 }}
+spec:
+  type: {{ .Values.apiGateway.service.type }}
+  ports:
+    - port: {{ .Values.apiGateway.port }}
+      targetPort: {{ .Values.apiGateway.port }}
+      protocol: TCP
+      name: http
+      {{- if and (eq .Values.apiGateway.service.type "NodePort") .Values.apiGateway.service.nodePort }}
+      nodePort: {{ .Values.apiGateway.service.nodePort }}
+      {{- end }}
+  selector:
+    {{- include "petclinic.selectorLabels" (dict "Release" .Release "component" "api-gateway") | nindent 4 }}

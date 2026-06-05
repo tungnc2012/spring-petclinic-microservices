@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-vets-service
+  labels:
+    {{- include "petclinic.labels" (dict "Release" .Release "Chart" .Chart "component" "vets-service") | nindent 4 }}
+spec:
+  replicas: {{ .Values.vetsService.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "petclinic.selectorLabels" (dict "Release" .Release "component" "vets-service") | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "petclinic.selectorLabels" (dict "Release" .Release "component" "vets-service") | nindent 8 }}
+    spec:
+      initContainers:
+        {{- include "petclinic.initContainers.waitForDependencies" . | nindent 8 }}
+      containers:
+        - name: vets-service
+          image: {{ include "petclinic.image" (dict "service" .Values.vetsService "global" .Values.global "defaultName" "spring-petclinic-vets-service") }}
+          imagePullPolicy: {{ .Values.global.imagePullPolicy }}
+          ports:
+            - containerPort: {{ .Values.vetsService.port }}
+              protocol: TCP
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "docker{{- if .Values.mysql.enabled }},mysql{{- end }}"
+            {{- if .Values.mysql.enabled }}
+            - name: MYSQL_URL
+              value: "jdbc:mysql://{{ .Values.mysql.host }}:{{ .Values.mysql.port }}/{{ .Values.mysql.database }}"
+            - name: MYSQL_USER
+              value: "{{ .Values.mysql.username }}"
+            - name: MYSQL_PASS
+              value: "{{ .Values.mysql.password }}"
+            {{- end }}
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: {{ .Values.vetsService.port }}
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: {{ .Values.vetsService.port }}
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            timeoutSeconds: 5
+          resources:
+            {{- toYaml .Values.vetsService.resources | nindent 12 }}

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-customers-service
+  labels:
+    {{- include "petclinic.labels" (dict "Release" .Release "Chart" .Chart "component" "customers-service") | nindent 4 }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: {{ .Values.customersService.port }}
+      targetPort: {{ .Values.customersService.port }}
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "petclinic.selectorLabels" (dict "Release" .Release "component" "customers-service") | nindent 4 }}
