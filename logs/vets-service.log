@@ -15,27 +15,27 @@
 [INFO] Collected git.build.user.name with value 
 [INFO] Collected git.build.user.email with value 
 [INFO] Collected git.branch with value main
-[INFO] Collected git.commit.id.describe with value 795fbe1-dirty
-[INFO] Collected git.commit.id.describe-short with value 795fbe1-dirty
-[INFO] Collected git.commit.id with value 795fbe1833c28e38a04edc174d3f272bb6528069
-[INFO] Collected git.commit.id.abbrev with value 795fbe1
+[INFO] Collected git.commit.id.describe with value df4d693-dirty
+[INFO] Collected git.commit.id.describe-short with value df4d693-dirty
+[INFO] Collected git.commit.id with value df4d6931f55076800d3decf53bab7a12919ec3e1
+[INFO] Collected git.commit.id.abbrev with value df4d693
 [INFO] Collected git.dirty with value true
 [INFO] Collected git.commit.user.name with value Tung Do Thanh
 [INFO] Collected git.commit.user.email with value tungdo@Tungs-Mac-mini.local
-[INFO] Collected git.commit.message.full with value update scripts
-[INFO] Collected git.commit.message.short with value update scripts
-[INFO] Collected git.commit.time with value 2026-06-07T11:25:21+0700
-[INFO] Collected git.commit.author.time with value 2026-06-07T11:25:21+0700
-[INFO] Collected git.commit.committer.time with value 2026-06-07T11:25:21+0700
+[INFO] Collected git.commit.message.full with value add show-services script
+[INFO] Collected git.commit.message.short with value add show-services script
+[INFO] Collected git.commit.time with value 2026-06-07T22:56:16+0700
+[INFO] Collected git.commit.author.time with value 2026-06-07T22:56:16+0700
+[INFO] Collected git.commit.committer.time with value 2026-06-07T22:56:16+0700
 [INFO] Collected git.remote.origin.url with value git@github.com:tungnc2012/spring-petclinic-microservices.git
 [INFO] Collected git.tags with value 
 [INFO] Collected git.tag with value 
 [INFO] Collected git.closest.tag.name with value 
 [INFO] Collected git.closest.tag.commit.count with value 
-[INFO] Collected git.total.commit.count with value 764
+[INFO] Collected git.total.commit.count with value 765
 [INFO] Collected git.local.branch.ahead with value 0
 [INFO] Collected git.local.branch.behind with value 0
-[INFO] Collected git.build.time with value 2026-06-07T22:19:29+0700
+[INFO] Collected git.build.time with value 2026-06-07T23:37:52+0700
 [INFO] Collected git.build.version with value 4.0.1
 [INFO] Collected git.build.host with value Tungs-Mac-mini.local
 [INFO] including property 'git.tags' in results
@@ -87,7 +87,7 @@
 [INFO] 
 [INFO] --- spring-boot:4.0.1:run (default-cli) @ spring-petclinic-vets-service ---
 [INFO] Attaching agents: []
-22:19:33,298 |-WARN in ch.qos.logback.core.model.processor.ImplicitModelHandler - Ignoring unknown property [jmxConfigurator] in [ch.qos.logback.classic.LoggerContext]
+23:37:56,059 |-WARN in ch.qos.logback.core.model.processor.ImplicitModelHandler - Ignoring unknown property [jmxConfigurator] in [ch.qos.logback.classic.LoggerContext]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -98,28 +98,28 @@
 
  :: Spring Boot ::                (v4.0.1)
 
-2026-06-07T22:19:33.351+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] o.s.s.p.vets.VetsServiceApplication      : Starting VetsServiceApplication using Java 23.0.2 with PID 26770 (/Users/tungdo/Code/Learn/SRE/spring-petclinic-microservices/spring-petclinic-vets-service/target/classes started by tungdo in /Users/tungdo/Code/Learn/SRE/spring-petclinic-microservices/spring-petclinic-vets-service)
-2026-06-07T22:19:33.352+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] o.s.s.p.vets.VetsServiceApplication      : The following 1 profile is active: "production"
-2026-06-07T22:19:33.373+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888/
-2026-06-07T22:19:33.373+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=vets-service, profiles=[default], label=null, version=323993ce2519c6d02df63e08bf4458d123d3b611, state=
-2026-06-07T22:19:33.374+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888/
-2026-06-07T22:19:33.374+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=vets-service, profiles=[production], label=null, version=323993ce2519c6d02df63e08bf4458d123d3b611, state=
-2026-06-07T22:19:33.727+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-07T22:19:33.791+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60 ms. Found 1 JPA repository interface.
-2026-06-07T22:19:33.902+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ce291ea3-c020-362e-ab62-8300de2b5888
-2026-06-07T22:19:34.069+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
-2026-06-07T22:19:34.074+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-06-07T22:19:34.075+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
-2026-06-07T22:19:34.100+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 725 ms
-2026-06-07T22:19:34.294+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-06-07T22:19:34.423+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Driver does not support get/set network timeout for connections. (feature not supported)
-2026-06-07T22:19:34.423+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.hsqldb.jdbc.JDBCConnection@22dc9d46
-2026-06-07T22:19:34.424+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-06-07T22:19:34.493+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-06-07T22:19:34.517+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.0.Final
-2026-06-07T22:19:34.669+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-07T22:19:34.700+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [jdbc:hsqldb:mem:2f55480b-2a9f-49f4-80f8-dc3fcf8bd7b1]
+2026-06-07T23:37:56.108+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] o.s.s.p.vets.VetsServiceApplication      : Starting VetsServiceApplication using Java 23.0.2 with PID 33874 (/Users/tungdo/Code/Learn/SRE/spring-petclinic-microservices/spring-petclinic-vets-service/target/classes started by tungdo in /Users/tungdo/Code/Learn/SRE/spring-petclinic-microservices/spring-petclinic-vets-service)
+2026-06-07T23:37:56.109+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] o.s.s.p.vets.VetsServiceApplication      : The following 1 profile is active: "production"
+2026-06-07T23:37:56.127+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888/
+2026-06-07T23:37:56.127+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=vets-service, profiles=[default], label=null, version=323993ce2519c6d02df63e08bf4458d123d3b611, state=
+2026-06-07T23:37:56.127+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888/
+2026-06-07T23:37:56.127+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=vets-service, profiles=[production], label=null, version=323993ce2519c6d02df63e08bf4458d123d3b611, state=
+2026-06-07T23:37:56.499+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-07T23:37:56.572+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 1 JPA repository interface.
+2026-06-07T23:37:56.691+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ce291ea3-c020-362e-ab62-8300de2b5888
+2026-06-07T23:37:56.861+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+2026-06-07T23:37:56.867+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-07T23:37:56.868+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-06-07T23:37:56.898+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 770 ms
+2026-06-07T23:37:57.114+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-07T23:37:57.255+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Driver does not support get/set network timeout for connections. (feature not supported)
+2026-06-07T23:37:57.256+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.hsqldb.jdbc.JDBCConnection@7676b2b9
+2026-06-07T23:37:57.256+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-07T23:37:57.336+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-07T23:37:57.361+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.0.Final
+2026-06-07T23:37:57.531+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-07T23:37:57.566+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:hsqldb:mem:5d887444-cfb5-4fbd-9965-19847e2bf085]
 	Database driver: HSQL Database Engine Driver
 	Database dialect: HSQLDialect
 	Database version: 2.7.3
@@ -130,11 +130,11 @@
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-06-07T22:19:35.032+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-07T22:19:35.036+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-07T22:19:35.073+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-06-07T22:19:35.472+07:00  WARN 26770 --- [vets-service] [/api/v2/spans}}] [                                                 ] z.r.i.AsyncReporter$BoundedAsyncReporter : Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
-2026-06-07T22:19:35.472+07:00  WARN 26770 --- [vets-service] [/api/v2/spans}}] [                                                 ] z.r.i.AsyncReporter$BoundedAsyncReporter : Dropped 29 spans due to ConnectException()
+2026-06-07T23:37:57.937+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-07T23:37:57.940+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-07T23:37:57.980+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-07T23:37:58.309+07:00  WARN 33874 --- [vets-service] [/api/v2/spans}}] [                                                 ] z.r.i.AsyncReporter$BoundedAsyncReporter : Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2026-06-07T23:37:58.309+07:00  WARN 33874 --- [vets-service] [/api/v2/spans}}] [                                                 ] z.r.i.AsyncReporter$BoundedAsyncReporter : Dropped 32 spans due to ConnectException()
 
 java.net.ConnectException
 	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:956)
@@ -166,48 +166,35 @@ Caused by: java.nio.channels.ClosedChannelException
 	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:212)
 	... 9 common frames omitted
 
-2026-06-07T22:19:36.260+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2026-06-07T22:19:36.326+07:00  WARN 26770 --- [vets-service] [           main] [                                                 ] i.m.c.i.b.cache.CaffeineCacheMetrics     : The cache 'vets' is not recording statistics. No meters except 'cache.size' will be registered. Call 'Caffeine#recordStats()' prior to building the cache for metrics to be recorded.
-2026-06-07T22:19:37.374+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2026-06-07T22:19:37.385+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestClient.
-2026-06-07T22:19:37.411+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 17 endpoints beneath base path '/actuator'
-2026-06-07T22:19:37.446+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 62856 (http) with context path '/'
-2026-06-07T22:19:37.447+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 62856
-2026-06-07T22:19:37.449+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2026-06-07T22:19:37.457+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2026-06-07T22:19:37.458+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-06-07T22:19:37.461+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2026-06-07T22:19:37.461+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2026-06-07T22:19:37.461+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2026-06-07T22:19:37.461+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2026-06-07T22:19:37.461+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2026-06-07T22:19:37.461+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2026-06-07T22:19:37.461+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2026-06-07T22:19:37.576+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2026-06-07T22:19:37.577+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2026-06-07T22:19:37.577+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2026-06-07T22:19:37.578+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1780845577578 with initial instances count: 0
-2026-06-07T22:19:37.580+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application VETS-SERVICE with eureka with status UP
-2026-06-07T22:19:37.581+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1780845577581, current=UP, previous=STARTING]
-2026-06-07T22:19:37.582+07:00  INFO 26770 --- [vets-service] [foReplicator-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_VETS-SERVICE/localhost:vets-service:0: registering service...
-2026-06-07T22:19:37.600+07:00  INFO 26770 --- [vets-service] [foReplicator-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_VETS-SERVICE/localhost:vets-service:0 - registration status: 204
-2026-06-07T22:19:38.587+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2026-06-07T22:19:38.592+07:00  INFO 26770 --- [vets-service] [           main] [                                                 ] o.s.s.p.vets.VetsServiceApplication      : Started VetsServiceApplication in 8.365 seconds (process running for 8.557)
-2026-06-07T22:20:07.580+07:00  INFO 26770 --- [vets-service] [reshExecutor-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2026-06-07T22:20:07.581+07:00  INFO 26770 --- [vets-service] [reshExecutor-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2026-06-07T22:20:07.582+07:00  INFO 26770 --- [vets-service] [reshExecutor-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2026-06-07T22:20:07.582+07:00  INFO 26770 --- [vets-service] [reshExecutor-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2026-06-07T22:20:07.582+07:00  INFO 26770 --- [vets-service] [reshExecutor-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2026-06-07T22:20:07.582+07:00  INFO 26770 --- [vets-service] [reshExecutor-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
-2026-06-07T22:20:07.582+07:00  INFO 26770 --- [vets-service] [reshExecutor-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2026-06-07T22:20:07.609+07:00  INFO 26770 --- [vets-service] [reshExecutor-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2026-06-07T22:24:37.467+07:00  INFO 26770 --- [vets-service] [rap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-06-07T22:29:37.472+07:00  INFO 26770 --- [vets-service] [rap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-06-07T22:34:37.479+07:00  INFO 26770 --- [vets-service] [rap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-06-07T22:39:37.483+07:00  INFO 26770 --- [vets-service] [rap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-06-07T22:44:37.486+07:00  INFO 26770 --- [vets-service] [rap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-06-07T22:49:37.488+07:00  INFO 26770 --- [vets-service] [rap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-06-07T22:54:14.972+07:00  INFO 26770 --- [vets-service] [o-auto-1-exec-1] [                                                 ] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-06-07T22:54:14.973+07:00  INFO 26770 --- [vets-service] [o-auto-1-exec-1] [                                                 ] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-06-07T22:54:14.977+07:00  INFO 26770 --- [vets-service] [o-auto-1-exec-1] [                                                 ] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
-2026-06-07T22:54:37.492+07:00  INFO 26770 --- [vets-service] [rap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-07T23:37:59.179+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-07T23:37:59.230+07:00  WARN 33874 --- [vets-service] [           main] [                                                 ] i.m.c.i.b.cache.CaffeineCacheMetrics     : The cache 'vets' is not recording statistics. No meters except 'cache.size' will be registered. Call 'Caffeine#recordStats()' prior to building the cache for metrics to be recorded.
+2026-06-07T23:38:00.278+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-07T23:38:00.298+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestClient.
+2026-06-07T23:38:00.330+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 17 endpoints beneath base path '/actuator'
+2026-06-07T23:38:00.367+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 64317 (http) with context path '/'
+2026-06-07T23:38:00.367+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 64317
+2026-06-07T23:38:00.370+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-06-07T23:38:00.380+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-06-07T23:38:00.381+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-07T23:38:00.384+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-06-07T23:38:00.384+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-06-07T23:38:00.384+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-06-07T23:38:00.384+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-06-07T23:38:00.384+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-06-07T23:38:00.384+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-06-07T23:38:00.384+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-06-07T23:38:00.497+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-06-07T23:38:00.498+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-06-07T23:38:00.498+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-06-07T23:38:00.499+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1780850280499 with initial instances count: 1
+2026-06-07T23:38:00.501+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application VETS-SERVICE with eureka with status UP
+2026-06-07T23:38:00.501+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1780850280501, current=UP, previous=STARTING]
+2026-06-07T23:38:00.502+07:00  INFO 33874 --- [vets-service] [foReplicator-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_VETS-SERVICE/localhost:vets-service:0: registering service...
+2026-06-07T23:38:00.526+07:00  INFO 33874 --- [vets-service] [foReplicator-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_VETS-SERVICE/localhost:vets-service:0 - registration status: 204
+2026-06-07T23:38:01.508+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-07T23:38:01.514+07:00  INFO 33874 --- [vets-service] [           main] [                                                 ] o.s.s.p.vets.VetsServiceApplication      : Started VetsServiceApplication in 8.623 seconds (process running for 8.824)
+2026-06-07T23:40:33.954+07:00  INFO 33874 --- [vets-service] [o-auto-1-exec-1] [                                                 ] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-07T23:40:33.955+07:00  INFO 33874 --- [vets-service] [o-auto-1-exec-1] [                                                 ] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-07T23:40:33.962+07:00  INFO 33874 --- [vets-service] [o-auto-1-exec-1] [                                                 ] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2026-06-07T23:43:00.386+07:00  INFO 33874 --- [vets-service] [rap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-07T23:48:00.388+07:00  INFO 33874 --- [vets-service] [rap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

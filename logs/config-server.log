@@ -15,27 +15,27 @@
 [INFO] Collected git.build.user.name with value 
 [INFO] Collected git.build.user.email with value 
 [INFO] Collected git.branch with value main
-[INFO] Collected git.commit.id.describe with value 795fbe1-dirty
-[INFO] Collected git.commit.id.describe-short with value 795fbe1-dirty
-[INFO] Collected git.commit.id with value 795fbe1833c28e38a04edc174d3f272bb6528069
-[INFO] Collected git.commit.id.abbrev with value 795fbe1
+[INFO] Collected git.commit.id.describe with value df4d693-dirty
+[INFO] Collected git.commit.id.describe-short with value df4d693-dirty
+[INFO] Collected git.commit.id with value df4d6931f55076800d3decf53bab7a12919ec3e1
+[INFO] Collected git.commit.id.abbrev with value df4d693
 [INFO] Collected git.dirty with value true
 [INFO] Collected git.commit.user.name with value Tung Do Thanh
 [INFO] Collected git.commit.user.email with value tungdo@Tungs-Mac-mini.local
-[INFO] Collected git.commit.message.full with value update scripts
-[INFO] Collected git.commit.message.short with value update scripts
-[INFO] Collected git.commit.time with value 2026-06-07T11:25:21+0700
-[INFO] Collected git.commit.author.time with value 2026-06-07T11:25:21+0700
-[INFO] Collected git.commit.committer.time with value 2026-06-07T11:25:21+0700
+[INFO] Collected git.commit.message.full with value add show-services script
+[INFO] Collected git.commit.message.short with value add show-services script
+[INFO] Collected git.commit.time with value 2026-06-07T22:56:16+0700
+[INFO] Collected git.commit.author.time with value 2026-06-07T22:56:16+0700
+[INFO] Collected git.commit.committer.time with value 2026-06-07T22:56:16+0700
 [INFO] Collected git.remote.origin.url with value git@github.com:tungnc2012/spring-petclinic-microservices.git
 [INFO] Collected git.tags with value 
 [INFO] Collected git.tag with value 
 [INFO] Collected git.closest.tag.name with value 
 [INFO] Collected git.closest.tag.commit.count with value 
-[INFO] Collected git.total.commit.count with value 764
+[INFO] Collected git.total.commit.count with value 765
 [INFO] Collected git.local.branch.ahead with value 0
 [INFO] Collected git.local.branch.behind with value 0
-[INFO] Collected git.build.time with value 2026-06-07T22:18:24+0700
+[INFO] Collected git.build.time with value 2026-06-07T23:36:47+0700
 [INFO] Collected git.build.version with value 4.0.1
 [INFO] Collected git.build.host with value Tungs-Mac-mini.local
 [INFO] including property 'git.tags' in results
@@ -97,31 +97,31 @@
 
  :: Spring Boot ::                (v4.0.1)
 
-2026-06-07T22:18:26.174+07:00  INFO 26620 --- [           main] o.s.s.p.config.ConfigServerApplication   : Starting ConfigServerApplication using Java 23.0.2 with PID 26620 (/Users/tungdo/Code/Learn/SRE/spring-petclinic-microservices/spring-petclinic-config-server/target/classes started by tungdo in /Users/tungdo/Code/Learn/SRE/spring-petclinic-microservices/spring-petclinic-config-server)
-2026-06-07T22:18:26.174+07:00  INFO 26620 --- [           main] o.s.s.p.config.ConfigServerApplication   : No active profile set, falling back to 1 default profile: "default"
-2026-06-07T22:18:26.396+07:00  INFO 26620 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6d1c9e9d-ef40-32be-9e63-ab5fef88f9b6
-2026-06-07T22:18:26.482+07:00  INFO 26620 --- [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8888 (http)
-2026-06-07T22:18:26.487+07:00  INFO 26620 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-06-07T22:18:26.487+07:00  INFO 26620 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
-2026-06-07T22:18:26.527+07:00  INFO 26620 --- [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 333 ms
-2026-06-07T22:18:26.567+07:00  INFO 26620 --- [           main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page: class path resource [static/index.html]
-2026-06-07T22:18:27.683+07:00  INFO 26620 --- [           main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2026-06-07T22:18:27.812+07:00  INFO 26620 --- [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8888 (http) with context path '/'
-2026-06-07T22:18:28.818+07:00  INFO 26620 --- [           main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2026-06-07T22:18:28.826+07:00  INFO 26620 --- [           main] o.s.s.p.config.ConfigServerApplication   : Started ConfigServerApplication in 3.834 seconds (process running for 4.03)
-2026-06-07T22:18:55.242+07:00  INFO 26620 --- [nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-06-07T22:18:55.243+07:00  INFO 26620 --- [nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-06-07T22:18:55.246+07:00  INFO 26620 --- [nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-2026-06-07T22:18:57.898+07:00  INFO 26620 --- [nio-8888-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/discovery-server.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/'
-2026-06-07T22:18:57.898+07:00  INFO 26620 --- [nio-8888-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/application.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/' (document #0)
-2026-06-07T22:19:25.841+07:00  INFO 26620 --- [nio-8888-exec-2] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/customers-service.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/' (document #0)
-2026-06-07T22:19:25.843+07:00  INFO 26620 --- [nio-8888-exec-2] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/application.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/' (document #0)
-2026-06-07T22:19:31.426+07:00  INFO 26620 --- [nio-8888-exec-3] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/vets-service.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/' (document #1)
-2026-06-07T22:19:31.426+07:00  INFO 26620 --- [nio-8888-exec-3] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/vets-service.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/' (document #0)
-2026-06-07T22:19:31.426+07:00  INFO 26620 --- [nio-8888-exec-3] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/application.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/' (document #0)
-2026-06-07T22:19:32.243+07:00  INFO 26620 --- [nio-8888-exec-4] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/vets-service.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/' (document #0)
-2026-06-07T22:19:32.243+07:00  INFO 26620 --- [nio-8888-exec-4] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/application.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/' (document #0)
-2026-06-07T22:19:35.387+07:00  INFO 26620 --- [nio-8888-exec-5] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/visits-service.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/' (document #0)
-2026-06-07T22:19:35.387+07:00  INFO 26620 --- [nio-8888-exec-5] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/application.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/' (document #0)
-2026-06-07T22:19:40.475+07:00  INFO 26620 --- [nio-8888-exec-6] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/api-gateway.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/' (document #0)
-2026-06-07T22:19:40.475+07:00  INFO 26620 --- [nio-8888-exec-6] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/application.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-4762577752738346564/' (document #0)
+2026-06-07T23:36:49.208+07:00  INFO 33726 --- [           main] o.s.s.p.config.ConfigServerApplication   : Starting ConfigServerApplication using Java 23.0.2 with PID 33726 (/Users/tungdo/Code/Learn/SRE/spring-petclinic-microservices/spring-petclinic-config-server/target/classes started by tungdo in /Users/tungdo/Code/Learn/SRE/spring-petclinic-microservices/spring-petclinic-config-server)
+2026-06-07T23:36:49.209+07:00  INFO 33726 --- [           main] o.s.s.p.config.ConfigServerApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-06-07T23:36:49.430+07:00  INFO 33726 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6d1c9e9d-ef40-32be-9e63-ab5fef88f9b6
+2026-06-07T23:36:49.518+07:00  INFO 33726 --- [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8888 (http)
+2026-06-07T23:36:49.525+07:00  INFO 33726 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-07T23:36:49.525+07:00  INFO 33726 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-06-07T23:36:49.546+07:00  INFO 33726 --- [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 318 ms
+2026-06-07T23:36:49.585+07:00  INFO 33726 --- [           main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page: class path resource [static/index.html]
+2026-06-07T23:36:50.705+07:00  INFO 33726 --- [           main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-07T23:36:50.835+07:00  INFO 33726 --- [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8888 (http) with context path '/'
+2026-06-07T23:36:51.844+07:00  INFO 33726 --- [           main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-07T23:36:51.853+07:00  INFO 33726 --- [           main] o.s.s.p.config.ConfigServerApplication   : Started ConfigServerApplication in 3.817 seconds (process running for 4.009)
+2026-06-07T23:37:18.263+07:00  INFO 33726 --- [nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-07T23:37:18.264+07:00  INFO 33726 --- [nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-07T23:37:18.264+07:00  INFO 33726 --- [nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-06-07T23:37:20.965+07:00  INFO 33726 --- [nio-8888-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/discovery-server.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/'
+2026-06-07T23:37:20.965+07:00  INFO 33726 --- [nio-8888-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/application.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/' (document #0)
+2026-06-07T23:37:49.240+07:00  INFO 33726 --- [nio-8888-exec-2] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/customers-service.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/' (document #0)
+2026-06-07T23:37:49.241+07:00  INFO 33726 --- [nio-8888-exec-2] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/application.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/' (document #0)
+2026-06-07T23:37:53.961+07:00  INFO 33726 --- [nio-8888-exec-3] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/vets-service.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/' (document #1)
+2026-06-07T23:37:53.961+07:00  INFO 33726 --- [nio-8888-exec-3] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/vets-service.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/' (document #0)
+2026-06-07T23:37:53.961+07:00  INFO 33726 --- [nio-8888-exec-3] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/application.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/' (document #0)
+2026-06-07T23:37:55.011+07:00  INFO 33726 --- [nio-8888-exec-4] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/vets-service.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/' (document #0)
+2026-06-07T23:37:55.011+07:00  INFO 33726 --- [nio-8888-exec-4] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/application.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/' (document #0)
+2026-06-07T23:37:59.022+07:00  INFO 33726 --- [nio-8888-exec-5] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/visits-service.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/' (document #0)
+2026-06-07T23:37:59.022+07:00  INFO 33726 --- [nio-8888-exec-5] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/application.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/' (document #0)
+2026-06-07T23:38:04.629+07:00  INFO 33726 --- [nio-8888-exec-6] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/api-gateway.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/' (document #0)
+2026-06-07T23:38:04.629+07:00  INFO 33726 --- [nio-8888-exec-6] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/application.yml]' via location 'file:/var/folders/yf/wk08wrc96ms3r73m8679xzpc0000gn/T/config-repo-9938608302182239706/' (document #0)

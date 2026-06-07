@@ -15,27 +15,27 @@
 [INFO] Collected git.build.user.name with value 
 [INFO] Collected git.build.user.email with value 
 [INFO] Collected git.branch with value main
-[INFO] Collected git.commit.id.describe with value 795fbe1-dirty
-[INFO] Collected git.commit.id.describe-short with value 795fbe1-dirty
-[INFO] Collected git.commit.id with value 795fbe1833c28e38a04edc174d3f272bb6528069
-[INFO] Collected git.commit.id.abbrev with value 795fbe1
+[INFO] Collected git.commit.id.describe with value df4d693-dirty
+[INFO] Collected git.commit.id.describe-short with value df4d693-dirty
+[INFO] Collected git.commit.id with value df4d6931f55076800d3decf53bab7a12919ec3e1
+[INFO] Collected git.commit.id.abbrev with value df4d693
 [INFO] Collected git.dirty with value true
 [INFO] Collected git.commit.user.name with value Tung Do Thanh
 [INFO] Collected git.commit.user.email with value tungdo@Tungs-Mac-mini.local
-[INFO] Collected git.commit.message.full with value update scripts
-[INFO] Collected git.commit.message.short with value update scripts
-[INFO] Collected git.commit.time with value 2026-06-07T11:25:21+0700
-[INFO] Collected git.commit.author.time with value 2026-06-07T11:25:21+0700
-[INFO] Collected git.commit.committer.time with value 2026-06-07T11:25:21+0700
+[INFO] Collected git.commit.message.full with value add show-services script
+[INFO] Collected git.commit.message.short with value add show-services script
+[INFO] Collected git.commit.time with value 2026-06-07T22:56:16+0700
+[INFO] Collected git.commit.author.time with value 2026-06-07T22:56:16+0700
+[INFO] Collected git.commit.committer.time with value 2026-06-07T22:56:16+0700
 [INFO] Collected git.remote.origin.url with value git@github.com:tungnc2012/spring-petclinic-microservices.git
 [INFO] Collected git.tags with value 
 [INFO] Collected git.tag with value 
 [INFO] Collected git.closest.tag.name with value 
 [INFO] Collected git.closest.tag.commit.count with value 
-[INFO] Collected git.total.commit.count with value 764
+[INFO] Collected git.total.commit.count with value 765
 [INFO] Collected git.local.branch.ahead with value 0
 [INFO] Collected git.local.branch.behind with value 0
-[INFO] Collected git.build.time with value 2026-06-07T22:19:33+0700
+[INFO] Collected git.build.time with value 2026-06-07T23:37:57+0700
 [INFO] Collected git.build.version with value 4.0.1
 [INFO] Collected git.build.host with value Tungs-Mac-mini.local
 [INFO] including property 'git.tags' in results
@@ -87,7 +87,7 @@
 [INFO] 
 [INFO] --- spring-boot:4.0.1:run (default-cli) @ spring-petclinic-visits-service ---
 [INFO] Attaching agents: []
-22:19:36,475 |-WARN in ch.qos.logback.core.model.processor.ImplicitModelHandler - Ignoring unknown property [jmxConfigurator] in [ch.qos.logback.classic.LoggerContext]
+23:38:00,120 |-WARN in ch.qos.logback.core.model.processor.ImplicitModelHandler - Ignoring unknown property [jmxConfigurator] in [ch.qos.logback.classic.LoggerContext]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -98,26 +98,26 @@
 
  :: Spring Boot ::                (v4.0.1)
 
-2026-06-07T22:19:36.518+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] o.s.s.p.visits.VisitsServiceApplication  : Starting VisitsServiceApplication using Java 23.0.2 with PID 26797 (/Users/tungdo/Code/Learn/SRE/spring-petclinic-microservices/spring-petclinic-visits-service/target/classes started by tungdo in /Users/tungdo/Code/Learn/SRE/spring-petclinic-microservices/spring-petclinic-visits-service)
-2026-06-07T22:19:36.519+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] o.s.s.p.visits.VisitsServiceApplication  : No active profile set, falling back to 1 default profile: "default"
-2026-06-07T22:19:36.532+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888/
-2026-06-07T22:19:36.532+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=visits-service, profiles=[default], label=null, version=323993ce2519c6d02df63e08bf4458d123d3b611, state=
-2026-06-07T22:19:36.792+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-07T22:19:36.839+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43 ms. Found 1 JPA repository interface.
-2026-06-07T22:19:36.934+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] o.s.cloud.context.scope.GenericScope     : BeanFactory id=039e684b-1d05-31eb-b6ff-27172c6bfc0c
-2026-06-07T22:19:37.136+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
-2026-06-07T22:19:37.141+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-06-07T22:19:37.141+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
-2026-06-07T22:19:37.159+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 626 ms
-2026-06-07T22:19:37.348+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-06-07T22:19:37.479+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Driver does not support get/set network timeout for connections. (feature not supported)
-2026-06-07T22:19:37.479+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.hsqldb.jdbc.JDBCConnection@761b9314
-2026-06-07T22:19:37.480+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-06-07T22:19:37.553+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-06-07T22:19:37.571+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.0.Final
-2026-06-07T22:19:37.711+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-07T22:19:37.737+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [jdbc:hsqldb:mem:67c3f1dc-95e6-4fdc-b766-60ca0b003d0f]
+2026-06-07T23:38:00.168+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] o.s.s.p.visits.VisitsServiceApplication  : Starting VisitsServiceApplication using Java 23.0.2 with PID 33905 (/Users/tungdo/Code/Learn/SRE/spring-petclinic-microservices/spring-petclinic-visits-service/target/classes started by tungdo in /Users/tungdo/Code/Learn/SRE/spring-petclinic-microservices/spring-petclinic-visits-service)
+2026-06-07T23:38:00.169+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] o.s.s.p.visits.VisitsServiceApplication  : No active profile set, falling back to 1 default profile: "default"
+2026-06-07T23:38:00.182+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888/
+2026-06-07T23:38:00.182+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=visits-service, profiles=[default], label=null, version=323993ce2519c6d02df63e08bf4458d123d3b611, state=
+2026-06-07T23:38:00.515+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-07T23:38:00.564+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 1 JPA repository interface.
+2026-06-07T23:38:00.669+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] o.s.cloud.context.scope.GenericScope     : BeanFactory id=039e684b-1d05-31eb-b6ff-27172c6bfc0c
+2026-06-07T23:38:00.924+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+2026-06-07T23:38:00.935+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-07T23:38:00.936+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-06-07T23:38:00.958+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 775 ms
+2026-06-07T23:38:01.156+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-07T23:38:01.272+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Driver does not support get/set network timeout for connections. (feature not supported)
+2026-06-07T23:38:01.273+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.hsqldb.jdbc.JDBCConnection@761b9314
+2026-06-07T23:38:01.273+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-07T23:38:01.332+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-07T23:38:01.351+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.0.Final
+2026-06-07T23:38:01.491+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-07T23:38:01.520+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:hsqldb:mem:11dc4218-a2a3-4675-a508-3f36e6bb6a95]
 	Database driver: HSQL Database Engine Driver
 	Database dialect: HSQLDialect
 	Database version: 2.7.3
@@ -128,12 +128,12 @@
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-06-07T22:19:37.775+07:00  WARN 26797 --- [visits-service] [           main] [                                                 ] org.hibernate.orm.deprecation            : HHH90000033: Encountered use of deprecated annotation [interface jakarta.persistence.Temporal] at org.springframework.samples.petclinic.visits.model.Visit.date.
-2026-06-07T22:19:38.028+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-07T22:19:38.031+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-07T22:19:38.073+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-06-07T22:19:38.536+07:00  WARN 26797 --- [visits-service] [/api/v2/spans}}] [                                                 ] z.r.i.AsyncReporter$BoundedAsyncReporter : Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
-2026-06-07T22:19:38.536+07:00  WARN 26797 --- [visits-service] [/api/v2/spans}}] [                                                 ] z.r.i.AsyncReporter$BoundedAsyncReporter : Dropped 12 spans due to ConnectException()
+2026-06-07T23:38:01.561+07:00  WARN 33905 --- [visits-service] [           main] [                                                 ] org.hibernate.orm.deprecation            : HHH90000033: Encountered use of deprecated annotation [interface jakarta.persistence.Temporal] at org.springframework.samples.petclinic.visits.model.Visit.date.
+2026-06-07T23:38:01.823+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-07T23:38:01.829+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-07T23:38:01.885+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-07T23:38:02.325+07:00  WARN 33905 --- [visits-service] [/api/v2/spans}}] [                                                 ] z.r.i.AsyncReporter$BoundedAsyncReporter : Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2026-06-07T23:38:02.325+07:00  WARN 33905 --- [visits-service] [/api/v2/spans}}] [                                                 ] z.r.i.AsyncReporter$BoundedAsyncReporter : Dropped 12 spans due to ConnectException()
 
 java.net.ConnectException
 	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:956)
@@ -165,48 +165,35 @@ Caused by: java.nio.channels.ClosedChannelException
 	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:212)
 	... 9 common frames omitted
 
-2026-06-07T22:19:39.338+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2026-06-07T22:19:40.486+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2026-06-07T22:19:40.495+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestClient.
-2026-06-07T22:19:40.518+07:00  WARN 26797 --- [visits-service] [           main] [                                                 ] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2026-06-07T22:19:40.523+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 17 endpoints beneath base path '/actuator'
-2026-06-07T22:19:40.558+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 62864 (http) with context path '/'
-2026-06-07T22:19:40.559+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 62864
-2026-06-07T22:19:40.561+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2026-06-07T22:19:40.570+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2026-06-07T22:19:40.571+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-06-07T22:19:40.574+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2026-06-07T22:19:40.574+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2026-06-07T22:19:40.574+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2026-06-07T22:19:40.574+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2026-06-07T22:19:40.574+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2026-06-07T22:19:40.574+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2026-06-07T22:19:40.574+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2026-06-07T22:19:40.660+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2026-06-07T22:19:40.661+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2026-06-07T22:19:40.661+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2026-06-07T22:19:40.662+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1780845580662 with initial instances count: 0
-2026-06-07T22:19:40.664+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application VISITS-SERVICE with eureka with status UP
-2026-06-07T22:19:40.665+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1780845580665, current=UP, previous=STARTING]
-2026-06-07T22:19:40.665+07:00  INFO 26797 --- [visits-service] [foReplicator-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_VISITS-SERVICE/visits-service:bf8831ea-75eb-48a8-b7be-c3f27c5e7506: registering service...
-2026-06-07T22:19:40.680+07:00  INFO 26797 --- [visits-service] [foReplicator-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_VISITS-SERVICE/visits-service:bf8831ea-75eb-48a8-b7be-c3f27c5e7506 - registration status: 204
-2026-06-07T22:19:41.669+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2026-06-07T22:19:41.675+07:00  INFO 26797 --- [visits-service] [           main] [                                                 ] o.s.s.p.visits.VisitsServiceApplication  : Started VisitsServiceApplication in 7.311 seconds (process running for 7.504)
-2026-06-07T22:20:10.667+07:00  INFO 26797 --- [visits-service] [reshExecutor-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2026-06-07T22:20:10.670+07:00  INFO 26797 --- [visits-service] [reshExecutor-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2026-06-07T22:20:10.670+07:00  INFO 26797 --- [visits-service] [reshExecutor-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2026-06-07T22:20:10.670+07:00  INFO 26797 --- [visits-service] [reshExecutor-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2026-06-07T22:20:10.670+07:00  INFO 26797 --- [visits-service] [reshExecutor-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2026-06-07T22:20:10.670+07:00  INFO 26797 --- [visits-service] [reshExecutor-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
-2026-06-07T22:20:10.670+07:00  INFO 26797 --- [visits-service] [reshExecutor-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2026-06-07T22:20:10.695+07:00  INFO 26797 --- [visits-service] [reshExecutor-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2026-06-07T22:24:40.580+07:00  INFO 26797 --- [visits-service] [rap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-06-07T22:29:40.584+07:00  INFO 26797 --- [visits-service] [rap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-06-07T22:34:40.588+07:00  INFO 26797 --- [visits-service] [rap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-06-07T22:39:40.591+07:00  INFO 26797 --- [visits-service] [rap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-06-07T22:44:40.598+07:00  INFO 26797 --- [visits-service] [rap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-06-07T22:49:40.604+07:00  INFO 26797 --- [visits-service] [rap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2026-06-07T22:54:24.239+07:00  INFO 26797 --- [visits-service] [o-auto-1-exec-1] [                                                 ] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-06-07T22:54:24.240+07:00  INFO 26797 --- [visits-service] [o-auto-1-exec-1] [                                                 ] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-06-07T22:54:24.243+07:00  INFO 26797 --- [visits-service] [o-auto-1-exec-1] [                                                 ] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-2026-06-07T22:54:40.610+07:00  INFO 26797 --- [visits-service] [rap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-07T23:38:03.208+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-07T23:38:04.360+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-07T23:38:04.377+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestClient.
+2026-06-07T23:38:04.398+07:00  WARN 33905 --- [visits-service] [           main] [                                                 ] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-07T23:38:04.401+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 17 endpoints beneath base path '/actuator'
+2026-06-07T23:38:04.434+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 64326 (http) with context path '/'
+2026-06-07T23:38:04.435+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 64326
+2026-06-07T23:38:04.437+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-06-07T23:38:04.445+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-06-07T23:38:04.446+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-07T23:38:04.449+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-06-07T23:38:04.449+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-06-07T23:38:04.449+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-06-07T23:38:04.449+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-06-07T23:38:04.449+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-06-07T23:38:04.449+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-06-07T23:38:04.449+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-06-07T23:38:04.539+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-06-07T23:38:04.540+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-06-07T23:38:04.540+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-06-07T23:38:04.541+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1780850284541 with initial instances count: 1
+2026-06-07T23:38:04.543+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application VISITS-SERVICE with eureka with status UP
+2026-06-07T23:38:04.544+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1780850284544, current=UP, previous=STARTING]
+2026-06-07T23:38:04.544+07:00  INFO 33905 --- [visits-service] [foReplicator-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_VISITS-SERVICE/visits-service:7ade6e6e-eb72-44a3-8401-365b445ef80a: registering service...
+2026-06-07T23:38:04.559+07:00  INFO 33905 --- [visits-service] [foReplicator-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_VISITS-SERVICE/visits-service:7ade6e6e-eb72-44a3-8401-365b445ef80a - registration status: 204
+2026-06-07T23:38:05.550+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2026-06-07T23:38:05.562+07:00  INFO 33905 --- [visits-service] [           main] [                                                 ] o.s.s.p.visits.VisitsServiceApplication  : Started VisitsServiceApplication in 7.679 seconds (process running for 7.888)
+2026-06-07T23:41:14.754+07:00  INFO 33905 --- [visits-service] [o-auto-1-exec-1] [                                                 ] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-07T23:41:14.755+07:00  INFO 33905 --- [visits-service] [o-auto-1-exec-1] [                                                 ] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-07T23:41:14.762+07:00  INFO 33905 --- [visits-service] [o-auto-1-exec-1] [                                                 ] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2026-06-07T23:43:04.452+07:00  INFO 33905 --- [visits-service] [rap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-06-07T23:48:04.455+07:00  INFO 33905 --- [visits-service] [rap-executor-%d] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
